@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarization Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .output-section {
+            margin-top: 20px;
+        }
+
+        .summary-box {
+            border: 2px solid #007BFF;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #e9f7ff;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        .summary-box p {
+            margin: 10px 0;
+        }
+
+        .summary-box strong {
+            color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Summarization Results</h1>
+        <div class="output-section">
+            <h2>Summary Method: TextRank</h2>
+            <div class="summary-box">
+                <p>{{ summaries.textrank }}</p>
+                <p><strong>Efficiency:</strong> {{ efficiencies.textrank }}</p>
+            </div>
+            <h2>Summary Method: TextRank Cosine</h2>
+            <div class="summary-box">
+                <p>{{ summaries.textrank_cosine }}</p>
+                <p><strong>Efficiency:</strong> {{ efficiencies.textrank_cosine }}</p>
+            </div>
+            <h2>Summary Method: TF-IDF</h2>
+            <div class="summary-box">
+                <p>{{ summaries.tfidf }}</p>
+                <p><strong>Efficiency:</strong> {{ efficiencies.tfidf }}</p>
+            </div>
+            <h2>Summary Method: BERT</h2>
+            <div class="summary-box">
+                <p>{{ summaries.bert }}</p>
+                <p><strong>Efficiency:</strong> {{ efficiencies.bert }}</p>
+            </div>
+            <h2>Best Summary Method: {{ best_summary_method }}</h2>
+            <div class="summary-box">
+                <p>{{ best_summary }}</p>
+                <p><strong>Efficiency:</strong> {{ final_efficiency }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
